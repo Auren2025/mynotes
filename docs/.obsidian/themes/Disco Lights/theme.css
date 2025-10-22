@@ -1,0 +1,61 @@
+/* themes.css */
+/* https://docs.obsidian.md/Reference/CSS+variables/Editor/Inline+title */
+
+:root {
+  --dark0: #2e3440;
+  --dark1: #3b4252;
+  --dark2: #434c5e;
+  --dark3: #4c566a;
+
+  --red: #bf616a;
+  --red-rgb: 191, 97, 106;
+  --orange: #d08770;
+  --yellow: #ebcb8b;
+  --green: #a3be8c;
+  --purple: #b48ead;
+
+  --frost0: #8fbcbb;
+  --frost1: #88c0d0;
+  --frost2: #81a1c1;
+}
+
+.theme-dark {
+  /* 界面UI */
+  --background-primary: var(--dark0);
+  --background-primary-alt: var(--dark0);
+  --background-secondary: var(--dark1);
+  --background-secondary-alt: var(--dark2);
+
+  --tab-font-weight: 700;
+  --tab-text-color: #7c7c7c;
+  --tab-text-color-focused-active-current: var(--red);
+
+  /* 导航栏悬浮与激活 */
+  --nav-item-color-hover: var(--red);
+  --nav-item-color-active: var(--frost2);
+
+  /* ============================================================== */
+  /* 编辑与预览 */
+
+  /* 6级标题 */
+  --h1-color: var(--red);
+  --h2-color: var(--yellow);
+  --h3-color: var(--green);
+  --h4-color: var(--purple);
+  --h5-color: var(--frost0);
+  --h6-color: var(--frost2);
+
+  /* 文档标题 */
+  --inline-title-color: var(--red);
+  --inline-title-line-height: 1.4;
+  --inline-title-size: 2em;
+  --inline-title-weight: 700;
+  --inline-title-font: "JetBrains Mono", "思源黑体", sans-serif;
+
+  /* 代码块 */
+  --code-normal: var(--frost1);
+  --code-background: var(--dark1);
+
+  /* 引用 Quote */
+  --blockquote-border-color: var(--orange);
+}

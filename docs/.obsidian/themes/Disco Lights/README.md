@@ -1,0 +1,1 @@
+主题目录的名称必须与 manifest.json 中的 name 属性完全匹配。

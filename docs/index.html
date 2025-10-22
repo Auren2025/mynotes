@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      window.$docsify = {
+        name: "我的文档站",
+        repo: "",
+
+        loadSidebar: true, // 需要 docs/_sidebar.md
+        subMaxLevel: 1, // 只在侧边栏显示到 H2，不展开更深层
+        loadNavbar: true, // 需要 docs/_navbar.md
+        auto2top: true,
+
+        alias: {
+          "/.*/_sidebar.md": "/_sidebar.md",
+          "/.*/_navbar.md": "/_navbar.md",
+        },
+
+        plugins: [
+          function (hook, vm) {
+            let fm = {};
+
+            hook.beforeEach(function (content) {
+              // front-matter 插件会把解析结果挂到 vm.frontmatter
+              fm = (vm && vm.frontmatter) || {};
+              const hasH1 = /^#\s+/m.test(content.trimStart());
+              if (!hasH1 && fm.title) {
+                content = `# ${fm.title}\n\n` + content;
+              }
+              return content;
+            });
+
+            hook.doneEach(function () {
+              if (fm && fm.title) {
+                document.title = fm.title + " | Docs";
+              }
+            });
+          },
+        ],
+      };
+    </script>
+
+    <!-- 先引入前置插件：front-matter 解析 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/front-matter.min.js"></script>
+    <!-- 主库 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  </body>
+</html>
